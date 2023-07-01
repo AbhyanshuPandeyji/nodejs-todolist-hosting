@@ -15,7 +15,10 @@ import bodyParser from 'body-parser';
 
 const app = express();
 // making connection between front end and backend with different port numbers
-app.use(cors());
+const corsOptions = {
+    origin : 'http://localhost:3000',
+}
+app.use(cors(corsOptions));
 
 // this needs to be before Routes because it will parse and validate the requested data
 // bodyparser or the json parser is used becaue the routes cannot handle the body request  this will handle that
@@ -35,4 +38,3 @@ const PORT = 8000;
 
 
 app.listen( PORT , ()=> {console.log(`server is Running on Port ${PORT}`);});
- 
